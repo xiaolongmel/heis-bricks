@@ -70,6 +70,10 @@ export interface ImageComponentProps extends CommonComponentProps {
   src: string;
 }
 
+export interface ShapeComponentProps extends CommonComponentProps {
+  backgroundColor: string;
+}
+
 export const textDefaultProps: TextComponentProps = {
   // basic props - font styles
   text: '正文内容',
@@ -90,6 +94,11 @@ export const imageDefaultProps: ImageComponentProps = {
   ...commonDefaultProps
 }
 
+export const shapeDefaultProps: ShapeComponentProps = {
+  backgroundColor: '',
+  ...commonDefaultProps
+}
+
 export const isEditingProp = {
   isEditing: {
     type: Boolean,
@@ -99,6 +108,7 @@ export const isEditingProp = {
 
 export const textStylePropNames = without(Object.keys(textDefaultProps), 'actionType', 'url', 'text')
 export const imageStylePropsNames = without(Object.keys(imageDefaultProps), 'src')
+export const shapeStylePropsNames = without(Object.keys(imageDefaultProps), 'actionType', 'url')
 
 export const transformToComponentProps = <T extends {}>(props: T) => {
   const mapProps = mapValues(props, (item) => {
