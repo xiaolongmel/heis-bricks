@@ -1,5 +1,6 @@
 <template>
   <h1>慕课乐高标准模版</h1>
+  <hello-world />
   <ul>
     <li>开箱即用</li>
     <li>typescript</li>
@@ -11,10 +12,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, getCurrentInstance, onMounted, inject } from 'vue';
 
 export default defineComponent({
   name: 'App',
+  setup() {
+    console.log('inject', inject('test'))
+    onMounted(() => {
+      getCurrentInstance()?.appContext.config.globalProperties.$echo()
+    })
+  }
 });
 </script>
 
