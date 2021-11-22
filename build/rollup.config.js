@@ -4,6 +4,8 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 import typescript from "rollup-plugin-typescript2"
 import { name } from "../package.json"
 const file = (type) => `dist/${name}.${type}.js`
+
+export { name, file }
 const overrides = {
   compilerOptions: {
     declaration: true,

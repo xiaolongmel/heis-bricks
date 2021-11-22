@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "npm run clean && npm run build:esm && npm run build:umd",
     "lint": "vue-cli-service lint",
-    "build:esm": "rollup --config build/rollup.config.js"
+    "build:esm": "rollup --config build/rollup.esm.config.js",
+    "build:umd": "rollup --config build/rollup.umd.config.js",
+    "clean": "rimraf ./dist"
   },
   "dependencies": {
     "core-js": "^3.6.5",
