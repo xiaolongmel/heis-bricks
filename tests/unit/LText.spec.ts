@@ -30,6 +30,7 @@ describe('LText.vue', () => {
     // should not have prop has been filtered
     expect(style.includes('actionType')).toBeFalsy()
   })
+  
   it('LText with actionType and URL should trigger location href change', async () => {
     const props = {
       ...textDefaultProps,
