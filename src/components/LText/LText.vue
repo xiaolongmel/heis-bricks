@@ -1,16 +1,14 @@
 <template>
-  <component :is="tag" class="l-text-component">
+  <component :is="tag" :style="styleProps" class="l-text-component" @click="handleClick">
     {{text}}
-  </component> 
+  </component>
 </template>
-
-<script lang='ts'>
-import { defineComponent, computed } from 'vue'
-import { pick } from 'lodash-es'
-import useComponnetCommon from '../../hooks/useComponentCommon'
+<script lang="ts">
+import { defineComponent } from 'vue'
+import useComponentCommon from '../../hooks/useComponentCommon'
 import { transformToComponentProps, textDefaultProps, textStylePropNames } from '../../defaultProps'
 const defaultProps = transformToComponentProps(textDefaultProps)
-
+// array that contains style props
 export default defineComponent({
   name: 'l-text',
   props: {
@@ -18,14 +16,15 @@ export default defineComponent({
       type: String,
       default: 'div'
     },
-    ...defaultProps,
+    ...defaultProps
   },
-  setup(props) {
-    
-    const {styleProps, handleClick} = useComponnetCommon(props, textStylePropNames)
+  setup (props) {
+    // 重用并且简化
+    // 抽离并且获得 styleProps
+    const { styleProps, handleClick} = useComponentCommon(props, textStylePropNames)
     return {
-      styleProps,
-      handleClick
+       styleProps,
+       handleClick
     }
   }
 })
@@ -45,5 +44,3 @@ button.l-text-component {
   position: relative !important;
 }
 </style>
-
-

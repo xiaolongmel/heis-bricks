@@ -2,39 +2,25 @@
   "name": "heis-bricks",
   "version": "1.0.0",
   "private": false,
-  "main": "dist/heis-bricks.umd.js",
-  "module": "dist/heis-bricks.esm.js",
-  "types": "dist/index.d.ts",
   "author": "Heisenberg",
-  "homepage": "https://github.com/xiaolongmel/heis-bricks",
-  "keywords": [
-    "Component",
-    "UI",
-    "Vue3"
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xiaolongmel/heis-bricks"
-  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "npm run clean && npm run build:esm && npm run build:umd",
+    "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
     "build:esm": "rollup --config build/rollup.esm.config.js",
     "build:umd": "rollup --config build/rollup.umd.config.js",
     "clean": "rimraf ./dist",
     "prepublishOnly": "npm run build"
   },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "lodash-es": "^4.17.20"
-  },
+  "main": "dist/heis-bricks.umd.js",
+  "module": "dist/heis-bricks.esm.js",
   "files": [
     "dist"
   ],
-  "peerDependencies": {
-    "vue": "^3.0.0"
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "lodash-es": "^4.17.20"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^11.1.1",
@@ -46,7 +32,7 @@
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-plugin-unit-jest": "^4.5.11",
+    "@vue/cli-plugin-unit-jest": "^4.5.15",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
@@ -59,8 +45,23 @@
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-typescript2": "^0.29.0",
     "rollup-plugin-vue": "^6.0.0",
-    "typescript": "^4.2.3",
+    "typescript": "^3.9.3",
     "vue": "^3.0.0",
     "vue-jest": "^5.0.0-0"
-  }
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "homepage": "https://github.com/xiaolongmel/heis-bricks",
+  "keywords": [
+    "Component",
+    "UI",
+    "Vue3"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaolongmel/heis-bricks"
+  },
+  "types": "dist/index.d.ts"
 }
