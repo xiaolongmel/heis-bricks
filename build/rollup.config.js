@@ -10,11 +10,7 @@ const overrides = {
   compilerOptions: {
     declaration: true,
   },
-  exclude: [
-    "node_modules",
-    "src/App.vue", 
-    "src/main.js"
-  ],
+  exclude: ["tests/**/*.ts", "tests/**/*.tsx"]
 }
 export default {
   input: "src/index.ts",
